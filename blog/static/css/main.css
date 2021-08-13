@@ -4,8 +4,9 @@
     padding: 5px 40px;
 }
 
-h1 a {
+h1 a, h1 a:hover {
     color: #131010;
+    text-decoration: none;
 }
 
 .post-form textarea, .post-form input {
@@ -21,4 +22,8 @@ h1 a {
 
 .post {
     margin-bottom: 70px;
+}
+
+.date {
+    font-size: small;
 }

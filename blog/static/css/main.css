@@ -1,0 +1,24 @@
+.page-header {
+    background-color: #228494;
+    margin: 0 0 10px 0;
+    padding: 5px 40px;
+}
+
+h1 a {
+    color: #131010;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+}

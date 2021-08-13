@@ -7,6 +7,8 @@ logs/*
 pids/*
 static/*
 squid_configs/*
+.DS_Store
+db.sqlite3
 
 # PyCharm
 .idea/
@@ -22,4 +24,3 @@ venv*
 config.yaml
 default.yaml
 docker-compose.yml
-db.sqlite3

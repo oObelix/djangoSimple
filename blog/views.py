@@ -2,6 +2,7 @@ import os
 from django.conf import settings
 from django.db.models import QuerySet
 from django.shortcuts import render, get_object_or_404
+from .forms import PostForm
 from .models import Post
 from django.utils import timezone
 
@@ -28,3 +29,14 @@ def post_detail(request, pk):
                       "blog", "templates", "blog", "post_detail.html"
                   ),
                   context={'post': post})
+
+
+def post_new(request):
+    form = PostForm()
+    return render(request=request,
+                  template_name=os.path.join(
+                      settings.BASE_DIR,
+                      "blog", "templates", "blog", "post_edit.html"
+                  ),
+                  context={'form': form}
+                  )

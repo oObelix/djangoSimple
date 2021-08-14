@@ -1,7 +1,7 @@
 import os
 from django.conf import settings
 from django.db.models import QuerySet
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm
 from .models import Post
 from django.utils import timezone
@@ -32,7 +32,16 @@ def post_detail(request, pk):
 
 
 def post_new(request):
-    form = PostForm()
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect("post_detail", pk=post.pk)
+    else:
+        form = PostForm()
     return render(request=request,
                   template_name=os.path.join(
                       settings.BASE_DIR,

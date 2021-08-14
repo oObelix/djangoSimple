@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm
 from .models import Post
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 
 def post_list(request):
@@ -31,6 +32,7 @@ def post_detail(request, pk):
                   context={'post': post})
 
 
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -51,6 +53,7 @@ def post_new(request):
                   )
 
 
+@login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
